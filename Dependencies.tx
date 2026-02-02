@@ -1,0 +1,8 @@
+Dependencies:
+Python 3.10+
+Flask
+MySQL Connector
+OpenCV
+EasyOCR
+ReportLab
+NumPy
