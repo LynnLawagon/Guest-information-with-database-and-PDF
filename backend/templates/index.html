@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Guest Data</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <!-- TensorFlow.js and Teachable Machine libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+
+<!-- Hero Section -->
+<!--Upload & Camera-->
+<div class="hero">
+  <div id="drop-area">
+    <input type="file" id="input-file" accept="image/*" style="display:none;" />
+    <div id="img-view">
+      <img id="preview-img" src="{{ url_for('static', filename='img/upload.png') }}" alt="Preview"/>
+      <video id="camera" autoplay></video>
+      <button id="snap-btn">Snap</button>
+      <div id="loading-indicator">Scanning...</div>
+      <p id="drop-text">Upload your ID here</p>
+      <span>Supports School ID or National ID</span>
+    </div>
+  </div>
+<!--OCR Results-->
+  <div id="ocr-results">
+    <h2>Results</h2>
+    <div class="form-group"><label>ID Type:</label><input id="id-type"/></div>
+    <div class="form-group"><label>First Name:</label><input id="first-name"/></div>
+    <div class="form-group"><label>Middle Name:</label><input id="middle-name"/></div>
+    <div class="form-group"><label>Last Name:</label><input id="last-name"/></div>
+    <div class="form-group"><label>Date of Birth:</label><input id="dob" placeholder="YYYY-MM-DD"/></div>
+    <div class="form-group"><label>Gender:</label><input id="gender"/></div>
+    <div class="form-group"><label>Contact:</label><input id="contact"/></div>
+    <div class="form-group"><label>Address:</label><input id="address"/></div>
+    <button id="toggle-btn">Use Camera</button>
+    <button id="snap-btn">Snap</button>
+    <button id="save-btn">Save</button>
+    <a href="/export-latest-pdf">Export PDF</a>
+  </div>
+</div>
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
